@@ -84,18 +84,23 @@ g:ackprg
 Default for ubuntu: "ack-grep"
 Default for other systems: "ack"
 
-Use this option to specify the ack command and its options
+Use this option to specify the search command and its default arguments.
 
 Example:
 >
-        let g:ackprg = "other-bin-ack"
+        let g:ackprg = "ag --vimgrep"
 <
 
                                                        *g:ack_default_options*
 g:ack_default_options
 Default: " -s -H --nocolor --nogroup --column"
 
-Use this option to specify the options used by ack
+Use this option to specify the default arguments given to `ack`. This is only
+used if |g:ackprg| has not been customized from the default--if you are using
+a custom search program instead of Ack, set your preferred options in
+|g:ackprg|.
+
+NOTE: This option may be deprecated in the future. ~
 
 Example:
 >
@@ -224,6 +229,22 @@ Example:
 >
         let g:ack_use_dispatch = 1
 <
+
+                                             *g:ack_use_cword_for_empty_search*
+
+g:ack_use_cword_for_empty_search
+Default: 1
+
+Use this option to enable blank searches to run against the word under the
+cursor. When this option is not set, blank searches will only output an error
+message.
+
+
+Example:
+>
+        let g:ack_use_cword_for_empty_search = 0
+<
+
 
 ==============================================================================
 MAPPINGS                                                        *ack-mappings*
