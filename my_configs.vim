@@ -2,6 +2,7 @@ inoremap jk <Esc>
 
 set nu
 set nowrap
+set tw=100
 
 nnoremap ] :tabn<cr>
 nnoremap [ :tabp<cr>
